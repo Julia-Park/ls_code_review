@@ -14,8 +14,6 @@ function textToValidSentences(text) {
   return splitText.filter(section => section !== undefined);
 }
 
-console.log(textToValidSentences('   this!'));
-
 function longestSentence(text) {
   let sentenceLength = function sentenceLength(sentence) {
     return sentence
