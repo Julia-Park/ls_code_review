@@ -5,7 +5,7 @@ function textToValidSentences(text) {
     return /^\w/g.test(string);
   }
 
-  let splitText = text.split(/([.!?]+)\W*/g);
+  let splitText = text.trim().split(/([.!?]+)\W*/g);
 
   splitText = splitText.map((section, idx) => {
     if (isSentence(section)) return section + splitText[idx + 1];
@@ -13,6 +13,8 @@ function textToValidSentences(text) {
 
   return splitText.filter(section => section !== undefined);
 }
+
+console.log(textToValidSentences('   this!'));
 
 function longestSentence(text) {
   let sentenceLength = function sentenceLength(sentence) {
